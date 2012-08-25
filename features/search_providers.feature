@@ -6,6 +6,6 @@ Feature: Search Providers
   Scenario: Search for a provider by last name
     Given I am on the home page
     And a provider with last name 'Seuss'
-    And I search for 'Seu'
+    When I search for "Seu"
     Then I should be on the seach results page
     And I should see the provider with last name'Seuss'
