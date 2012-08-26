@@ -5,5 +5,8 @@ FactoryGirl.define do
     factory :seuss do
       name 'Seuss'
     end
+    factory :jacob do
+      name 'Jacob'
+    end
   end
 end
