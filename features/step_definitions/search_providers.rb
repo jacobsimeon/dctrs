@@ -7,6 +7,10 @@ Given /^a provider with last name 'Seuss'$/ do
   create :seuss
 end
 
+Given /^a provider with first name 'Jacob'$/ do
+  create :jacob
+end
+
 When /^I search for "([^"]*)"$/ do |query|
   within('.form-search') do
     fill_in 'query', with: query
@@ -14,10 +18,18 @@ When /^I search for "([^"]*)"$/ do |query|
   end
 end
 
-Then /^I should be on the seach results page$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^I should be on the search results page$/ do
+  current_path.should == search_path
 end
 
-Then /^I should see the provider with last name'Seuss'$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^I should see the provider with last name 'Seuss'$/ do
+  within('div.providers') do
+    page.should have_content 'Seuss'
+  end
+end
+
+Then /^I should see the provider with first name 'Jacob'$/ do
+  within('div.providers') do
+    page.should have_content 'Jacob'
+  end
 end

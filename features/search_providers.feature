@@ -7,5 +7,12 @@ Feature: Search Providers
     Given I am on the home page
     And a provider with last name 'Seuss'
     When I search for "Seu"
-    Then I should be on the seach results page
-    And I should see the provider with last name'Seuss'
+    Then I should be on the search results page
+    And I should see the provider with last name 'Seuss'
+
+  Scenario: Search for a provider by first name
+    Given I am on the home page
+    And a provider with first name 'Jacob'
+    When I search for "Jac"
+    Then I should be on the search results page
+    And I should see the provider with first name 'Jacob'
