@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :provider do
     factory :seuss do
-      name 'Seuss'
+      association :name, :factory => :last
     end
     factory :jacob do
-      name 'Jacob'
+      association :name, :factory => :first
     end
   end
 end
