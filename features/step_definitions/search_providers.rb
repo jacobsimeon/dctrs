@@ -12,6 +12,7 @@ Given /^a provider with first name 'Jacob'$/ do
 end
 
 When /^I search for "([^"]*)"$/ do |query|
+  Provider.refresh_index
   within('.form-search') do
     fill_in 'query', with: query
     click_button 'Search'

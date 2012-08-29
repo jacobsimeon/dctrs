@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @providers = Provider.where "name LIKE ?", "%#{params[:query]}%"
+    @providers = Provider.search(params)
   end
 end

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120826221200) do
   end
 
   create_table "providers", :force => true do |t|
+    t.string   "full_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

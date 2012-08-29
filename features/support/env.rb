@@ -57,3 +57,8 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 World FactoryGirl::Syntax::Methods
+
+Before do
+  Provider.recreate_index
+end
+
