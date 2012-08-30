@@ -33,48 +33,36 @@ class Provider < ActiveRecord::Base
           "_all" => { "enabled" => true, :analyzer => :provider_analyzer },
           :properties => {
               :id => { :type => :integer },
-              :full_name => { :type => :string, :analyzer => :provider_analyzer, :include_in_all => true }
+              :full_name => {
+                :type => :string,
+                :analyzer => :provider_analyzer,
+                :include_in_all => true
+              }
             }
           }
         }
       }
   end
 
-=begin
-  settings Provider.provider_index_settings do
-    mapping { indexes :full_name, :type => 'string', :analyzer => "provider_analyzer" }
-  end
-=end
-
   def self.create_search_index
     Tire.index(Provider.index_name) do
       create(Provider.provider_index_settings)
     end
-
   end
 
   def self.search(params)
-    tire.search(load: true) do
+    tire.search do
       query { string params["query"] }
     end
   end
 
-  def self.create_index
-    self.create_search_index
-  end
-
-  def self.delete_index
-    self.index.delete
-  end
-
   def self.refresh_index
-    self.index.refresh
+    index.refresh
   end
 
   def self.recreate_index
-    delete_index
-    create_index
+    index.delete
+    create_search_index
   end
-
 
 end
