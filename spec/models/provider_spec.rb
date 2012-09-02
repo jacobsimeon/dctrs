@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Provider do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should accept_nested_attributes_for(:name) }
+  it { should have_one :name }
 end
