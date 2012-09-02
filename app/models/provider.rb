@@ -2,10 +2,12 @@ class Provider < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
-  attr_accessible :name
   has_one :name
+  accepts_nested_attributes_for :name
+  attr_accessible :name, :name_attributes
 
   index_name "#{Tire::Model::Search.index_prefix}providers"
+  after_touch { tire.update_index }
 
   def self.provider_index_settings
     {
@@ -61,12 +63,6 @@ class Provider < ActiveRecord::Base
     end
   end
 
-  def self.search(params)
-    tire.search do
-      query { string params["query"] }
-    end
-  end
-
   def self.refresh_index
     index.refresh
   end
@@ -74,6 +70,10 @@ class Provider < ActiveRecord::Base
   def self.recreate_index
     index.delete
     create_search_index
+  end
+
+  def to_indexed_json
+    { id: id, name: { first: (name.first rescue ""), last: (name.last rescue "")}}.to_json
   end
 
 end
