@@ -28,20 +28,31 @@ class Provider < ActiveRecord::Base
           },
         }
       },
-      :mappings => {
-        :provider => {
-          "_all" => { "enabled" => true, :analyzer => :provider_analyzer },
-          :properties => {
-              :id => { :type => :integer },
-              :full_name => {
-                :type => :string,
-                :analyzer => :provider_analyzer,
-                :include_in_all => true
+      mappings: {
+        provider: {
+          _all: { enabled: true, analyzer: :provider_analyzer },
+          properties: {
+            id: { type: :integer },
+            name: {
+              include_in_all: true,
+              type: :object,
+                properties: {
+                  first: {
+                  type: :string,
+                  include_in_all: true,
+                  analyzer: :snowball
+                },
+                  last: {
+                  type: :string,
+                  include_in_all: true,
+                  analyzer: :snowball
+                }
               }
             }
           }
         }
       }
+    }
   end
 
   def self.create_search_index
