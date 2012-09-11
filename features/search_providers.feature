@@ -32,8 +32,8 @@ Feature: Search Providers
 
   Scenario: Search for a provider by specialty
     Given I am on the home page
-    And a provider with specialty "Orthopaedic Surgery"
+    And a provider who specializes in Orthopaedic Surgery
     When I search for "Orthopaedic"
     Then I should be on the search results page
-    Then I should see the provider with specialty "Orthopaedic Surgery"
+    And I should see the provider who specializes in Orthopaedic Surgery
 

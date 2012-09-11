@@ -63,10 +63,14 @@ Then /^I should not see the provider with name "(.*?)"$/ do |content|
   end
 end
 
-Given /^a provider with specialty "(.*?)"$/ do |arg1|
-    pending # express the regexp above with the code you wish you had
+Given /^a provider who specializes in Orthopaedic Surgery$/ do
+  provider = IndividualProvider.create
+  provider.specialties << :ortho_specialty
+  provider.save
 end
 
-Then /^I should see the provider with specialty "(.*?)"$/ do |arg1|
-    pending # express the regexp above with the code you wish you had
+Then /^I should see the provider who specializes in Orthopaedic Surgery$/ do
+  within('div.providers') do
+    page.should have_content 'Orthopaedic Surgery'
+  end
 end
