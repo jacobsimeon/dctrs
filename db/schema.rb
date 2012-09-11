@@ -34,10 +34,14 @@ ActiveRecord::Schema.define(:version => 20120911031057) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "providers_specialties", :force => true do |t|
+    t.integer "provider_id"
+    t.integer "specialty_id"
+  end
+
   create_table "specialties", :force => true do |t|
     t.string   "code"
     t.string   "name"
-    t.integer  "provider_id"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
