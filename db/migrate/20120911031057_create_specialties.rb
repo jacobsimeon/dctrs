@@ -3,6 +3,7 @@ class CreateSpecialties < ActiveRecord::Migration
     create_table :specialties do |t|
       t.string :code
       t.string :name
+      t.references :provider
       t.text :description
 
       t.timestamps

@@ -1,6 +1,7 @@
 class Provider < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
+  has_many :specialties
 
   index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }
