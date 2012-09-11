@@ -6,6 +6,10 @@ class Provider < ActiveRecord::Base
   index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }
 
+  def specialty
+    specialties.first || Specialty.new(:name => "None", :description => "This provider has no specialty")
+  end
+
   def self.provider_index_settings
     {
       :settings => {
@@ -59,6 +63,17 @@ class Provider < ActiveRecord::Base
                   type: :string,
                   include_in_all: true,
                   analyzer: :snowball
+                },
+                specialty: {
+                  type: :object,
+                  include_in_all: true,
+                  properties: {
+                    name: {
+                      include_in_all: true,
+                      type: :string,
+                      analyzer: :snowball
+                    }
+                  }
                 }
               }
             }

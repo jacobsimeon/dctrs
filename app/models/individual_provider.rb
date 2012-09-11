@@ -7,6 +7,14 @@ class IndividualProvider < Provider
   document_type :provider
 
   def to_indexed_json
-    { id: id, name: { first: (name.first rescue ""), last: (name.last rescue "")}}.to_json
+    specialty = (specialties.first || Specialty.new)
+    { id: id,
+      name: {
+        first: (name.first rescue ""),
+        last: (name.last rescue "")},
+      specialty: {
+        name: specialty.name,
+        description: specialty.description
+      }}.to_json
   end
 end
