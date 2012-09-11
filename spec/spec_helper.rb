@@ -20,10 +20,11 @@ Spork.prefork do
     config.use_transactional_fixtures = true
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
+    config.include FactoryGirl::Syntax::Methods
   end
 
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
+  FactoryGirl.reload
 end
