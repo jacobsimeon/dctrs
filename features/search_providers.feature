@@ -29,3 +29,11 @@ Feature: Search Providers
     Then I should be on the search results page
     And I should see the provider with name "St. Lukes Hospital"
     And I should not see the provider with name "St. Alphonsus Hospital"
+
+  Scenario: Search for a provider by specialty
+    Given I am on the home page
+    And a provider with specialty "Orthopaedic Surgery"
+    When I search for "Orthopaedic"
+    Then I should be on the search results page
+    Then I should see the provider with specialty "Orthopaedic Surgery"
+

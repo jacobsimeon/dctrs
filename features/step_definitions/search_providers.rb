@@ -62,3 +62,11 @@ Then /^I should not see the provider with name "(.*?)"$/ do |content|
     page.should_not have_content content
   end
 end
+
+Given /^a provider with specialty "(.*?)"$/ do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see the provider with specialty "(.*?)"$/ do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
