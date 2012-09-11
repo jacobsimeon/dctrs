@@ -65,7 +65,7 @@ end
 
 Given /^a provider who specializes in Orthopaedic Surgery$/ do
   provider = IndividualProvider.create
-  provider.specialties << :ortho_specialty
+  provider.specialties << create(:ortho)
   provider.save
 end
 
