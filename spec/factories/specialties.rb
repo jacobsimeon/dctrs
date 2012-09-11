@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :specialty do
-    code "MyString"
-    name "MyString"
-    description "MyText"
+    factory :ortho do
+      code "207X00000X"
+      name "Orthopaedic Surgery"
+      description ""
+    end
   end
 end

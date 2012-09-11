@@ -11,4 +11,11 @@ FactoryGirl.define do
       association :name, :factory => :first
     end
   end
+
+  factory :individual_provider do
+    association :name, :factory => :individual_name do
+      first "jacob"
+      last "morris"
+    end
+  end
 end
