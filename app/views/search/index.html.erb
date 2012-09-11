@@ -4,6 +4,7 @@
       <% @providers.each do |p| %>
         <tr class="provider">
           <td> <%= p.name %> </td>
+          <td> <%= p.specialty.name %> </td>
         </tr>
       <% end %>
     </tbody>
