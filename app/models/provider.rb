@@ -2,30 +2,35 @@ class Provider < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
-  has_one :name
-  accepts_nested_attributes_for :name
-  attr_accessible :name, :name_attributes
-
   index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }
 
   def self.provider_index_settings
     {
       :settings => {
-        "analysis" => {
-          "analyzer" => {
-            "provider_analyzer" => {
-              "tokenizer"    => "lowercase",
-              "filter"       => ["provider_ngram"],
-              "type"         => "custom"
+        :analysis => {
+          :analyzer => {
+            :provider_analyzer => {
+              :tokenizer    => :standard,
+              :filter       => [:no_apostrophe, :standard, :lowercase, :asciifolding, :provider_ngram, :provider_name_synonym],
+              :type         => :custom
             }
           },
-          "filter" => {
-            "provider_ngram"  => {
-              "type"     => "edgeNGram",
-              "min_gram" => 2,
-              "max_gram" => 50,
-              "side" => "front"
+          :filter => {
+            :provider_ngram  => {
+              :type     => :edgeNGram,
+              :min_gram => 2,
+              :max_gram => 50,
+              :side => :front
+            },
+            :provider_name_synonym => {
+              :type => :synonym,
+              :synonyms_path => "synonyms/providers.txt"
+            },
+            :no_apostrophe => {
+              :type => :pattern_replace,
+              :pattern => "'",
+              :replacement => ""
             }
           },
         }
@@ -38,13 +43,18 @@ class Provider < ActiveRecord::Base
             name: {
               include_in_all: true,
               type: :object,
-                properties: {
-                  first: {
+              properties: {
+                first: {
                   type: :string,
                   include_in_all: true,
                   analyzer: :snowball
                 },
-                  last: {
+                last: {
+                  type: :string,
+                  include_in_all: true,
+                  analyzer: :snowball
+                },
+                legal_business_name: {
                   type: :string,
                   include_in_all: true,
                   analyzer: :snowball
@@ -70,10 +80,6 @@ class Provider < ActiveRecord::Base
   def self.recreate_index
     index.delete
     create_search_index
-  end
-
-  def to_indexed_json
-    { id: id, name: { first: (name.first rescue ""), last: (name.last rescue "")}}.to_json
   end
 
 end

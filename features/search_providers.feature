@@ -25,7 +25,7 @@ Feature: Search Providers
     Given I am on the home page
     And a provider organization with legal business name "St. Lukes Hospital"
     And a provider organization with legal business name "St. Alphonsus Hospital"
-    When I search for "St. Lu"
+    When I search for "Lukes"
     Then I should be on the search results page
     And I should see the provider with name "St. Lukes Hospital"
     And I should not see the provider with name "St. Alphonsus Hospital"

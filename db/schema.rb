@@ -11,20 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120902221246) do
+ActiveRecord::Schema.define(:version => 20120902222042) do
 
-  create_table "names", :force => true do |t|
+  create_table "individual_names", :force => true do |t|
     t.string   "first"
     t.string   "last"
-    t.integer  "provider_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "individual_provider_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "org_names", :force => true do |t|
+    t.string   "legal_business_name"
+    t.integer  "provider_organization_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "providers", :force => true do |t|
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "type"
   end
 
 end

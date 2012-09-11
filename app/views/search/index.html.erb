@@ -3,8 +3,7 @@
     <tbody>
       <% @providers.each do |p| %>
         <tr class="provider">
-          <td> <%= p.name.first rescue "" %> </td>
-          <td> <%= p.name.last rescue ""%> </td>
+          <td> <%= p.name %> </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe SearchHelper do
+describe OrgName do
 end
