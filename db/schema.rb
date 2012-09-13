@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913040407) do
+ActiveRecord::Schema.define(:version => 20120913045744) do
 
   create_table "individual_names", :force => true do |t|
     t.string   "first"
@@ -34,18 +34,29 @@ ActiveRecord::Schema.define(:version => 20120913040407) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "providers_specialties", :force => true do |t|
-    t.integer "provider_id"
-    t.integer "specialty_id"
+  create_table "specialties", :force => true do |t|
+    t.integer  "provider_id"
+    t.integer  "taxonomy_id"
+    t.boolean  "is_primary"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  create_table "specialties", :force => true do |t|
+  create_table "taxonomies", :force => true do |t|
     t.string   "code"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.integer  "parent_taxonomy_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "taxonomy_categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "parent_id"
   end
 
 end

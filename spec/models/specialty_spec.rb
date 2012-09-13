@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Specialty do
-  it { should have_and_belong_to_many :providers }
+  it { should belong_to :provider }
+  it { should belong_to :taxonomy }
 end
