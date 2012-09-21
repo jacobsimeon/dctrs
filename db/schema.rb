@@ -55,9 +55,14 @@ ActiveRecord::Schema.define(:version => 20120921041646) do
 
   create_table "providers", :force => true do |t|
     t.string   "type"
+    t.string   "npi"
+    t.string   "gender"
+    t.boolean  "is_sole_proprietor"
+    t.boolean  "is_organization_sub_part"
+    t.integer  "parent_provider_id"
     t.integer  "name_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "specialties", :force => true do |t|
