@@ -8,4 +8,5 @@ describe Provider do
   it { should have_one(:deactivation) }
   it { should have_many(:licenses) }
   it { should have_many(:identifiers) }
+  it { should have_many(:taxonomy_groups) }
 end

@@ -9,6 +9,7 @@ class Provider < ActiveRecord::Base
   has_one :deactivation
   has_many :licenses
   has_many :identifiers
+  has_many :taxonomy_groups
 
   index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }

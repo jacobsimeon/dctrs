@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921043227) do
+ActiveRecord::Schema.define(:version => 20120921043415) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_line"
@@ -119,5 +119,14 @@ ActiveRecord::Schema.define(:version => 20120921043227) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "taxonomy_groups", :force => true do |t|
+    t.integer  "provider_id"
+    t.string   "group"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "taxonomy_groups", ["provider_id"], :name => "index_taxonomy_groups_on_provider_id"
 
 end
