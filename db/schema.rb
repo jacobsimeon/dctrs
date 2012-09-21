@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921042950) do
+ActiveRecord::Schema.define(:version => 20120921043227) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_line"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20120921042950) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "identifiers", :force => true do |t|
+    t.integer  "provider_id"
+    t.string   "identifier_type"
+    t.string   "state"
+    t.string   "issuer"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "identifiers", ["provider_id"], :name => "index_identifiers_on_provider_id"
 
   create_table "individual_names", :force => true do |t|
     t.string   "first"

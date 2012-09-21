@@ -7,4 +7,5 @@ describe Provider do
   it { should belong_to(:parent_provider).class_name("Provider") }
   it { should have_one(:deactivation) }
   it { should have_many(:licenses) }
+  it { should have_many(:identifiers) }
 end
