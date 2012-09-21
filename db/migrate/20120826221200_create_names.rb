@@ -3,7 +3,9 @@ class CreateNames < ActiveRecord::Migration
     create_table :individual_names do |t|
       t.string :first
       t.string :last
-      t.references :individual_provider
+      t.string :middle
+      t.string :prefix
+      t.string :suffix
 
       t.timestamps
     end

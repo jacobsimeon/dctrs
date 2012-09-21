@@ -29,20 +29,23 @@ ActiveRecord::Schema.define(:version => 20120921032337) do
   create_table "individual_names", :force => true do |t|
     t.string   "first"
     t.string   "last"
-    t.integer  "individual_provider_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.string   "middle"
+    t.string   "prefix"
+    t.string   "suffix"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "org_names", :force => true do |t|
     t.string   "legal_business_name"
-    t.integer  "provider_organization_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "name_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "providers", :force => true do |t|
     t.string   "type"
+    t.integer  "name_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
