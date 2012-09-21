@@ -7,6 +7,7 @@ class Provider < ActiveRecord::Base
   has_one :practice_address, class_name: "Address"
   belongs_to :parent_provider, class_name: "Provider"
   has_one :deactivation
+  has_many :licenses
 
   index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }

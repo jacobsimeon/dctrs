@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921042649) do
+ActiveRecord::Schema.define(:version => 20120921042950) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_line"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20120921042649) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "licenses", :force => true do |t|
+    t.integer  "provider_id"
+    t.string   "number"
+    t.string   "state"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "licenses", ["provider_id"], :name => "index_licenses_on_provider_id"
 
   create_table "org_names", :force => true do |t|
     t.string   "legal_business_name"
