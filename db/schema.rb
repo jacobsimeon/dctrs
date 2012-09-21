@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921041646) do
+ActiveRecord::Schema.define(:version => 20120921042649) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_line"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20120921041646) do
   end
 
   add_index "authorized_officials", ["name_id"], :name => "index_authorized_officials_on_name_id"
+
+  create_table "deactivations", :force => true do |t|
+    t.date     "deactivated_on"
+    t.date     "reactivated_on"
+    t.string   "reason"
+    t.integer  "provider_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "individual_names", :force => true do |t|
     t.string   "first"
