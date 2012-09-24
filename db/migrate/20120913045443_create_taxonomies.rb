@@ -9,5 +9,7 @@ class CreateTaxonomies < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :taxonomies, :category_id
+    add_index :taxonomies, :parent_taxonomy_id
   end
 end

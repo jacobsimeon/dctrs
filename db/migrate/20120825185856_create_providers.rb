@@ -12,5 +12,7 @@ class CreateProviders < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :providers, :parent_provider_id
+    add_index :providers, :name_id
   end
 end

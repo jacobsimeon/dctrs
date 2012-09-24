@@ -7,5 +7,7 @@ class CreateSpecialties < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :specialties, :provider_id
+    add_index :specialties, :taxonomy_id
   end
 end

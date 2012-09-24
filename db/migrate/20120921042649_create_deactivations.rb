@@ -8,5 +8,6 @@ class CreateDeactivations < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :deactivations, :provider_id
   end
 end

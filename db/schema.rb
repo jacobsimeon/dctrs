@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "addresses", ["provider_id"], :name => "index_addresses_on_provider_id"
+
   create_table "authorized_officials", :force => true do |t|
     t.integer  "name_id"
     t.string   "phone"
@@ -44,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  add_index "deactivations", ["provider_id"], :name => "index_deactivations_on_provider_id"
 
   create_table "identifiers", :force => true do |t|
     t.integer  "provider_id"
@@ -67,14 +71,14 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
   end
 
   create_table "licenses", :force => true do |t|
-    t.integer  "provider_id"
     t.string   "number"
     t.string   "state"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "specialty_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  add_index "licenses", ["provider_id"], :name => "index_licenses_on_provider_id"
+  add_index "licenses", ["specialty_id"], :name => "index_licenses_on_specialty_id"
 
   create_table "org_names", :force => true do |t|
     t.string   "legal_business_name"
@@ -95,6 +99,9 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
     t.datetime "updated_at",               :null => false
   end
 
+  add_index "providers", ["name_id"], :name => "index_providers_on_name_id"
+  add_index "providers", ["parent_provider_id"], :name => "index_providers_on_parent_provider_id"
+
   create_table "specialties", :force => true do |t|
     t.integer  "provider_id"
     t.integer  "taxonomy_id"
@@ -102,6 +109,9 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "specialties", ["provider_id"], :name => "index_specialties_on_provider_id"
+  add_index "specialties", ["taxonomy_id"], :name => "index_specialties_on_taxonomy_id"
 
   create_table "taxonomies", :force => true do |t|
     t.string   "code"
@@ -112,6 +122,9 @@ ActiveRecord::Schema.define(:version => 20120921043415) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
+
+  add_index "taxonomies", ["category_id"], :name => "index_taxonomies_on_category_id"
+  add_index "taxonomies", ["parent_taxonomy_id"], :name => "index_taxonomies_on_parent_taxonomy_id"
 
   create_table "taxonomy_categories", :force => true do |t|
     t.string   "name"
