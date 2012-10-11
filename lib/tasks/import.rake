@@ -1,24 +1,20 @@
-task :import => :environment do
-  require 'csv'
+task :import do
 
-  def transform_row row 
-    # some column names are too long for PG
-    row.inject do |new_row, (key, value)|
-      new_row[(key.gsub('business_practice_location_address', 'bpla').to_sym rescue key)] = value
-      new_row
-    end
+  require 'csv'
+  require 'json'
+  require './lib/nppes/raw_provider.rb'
+
+  puts "Starting..."
+
+  providers = []
+  CSV.foreach("tmp/mini_providers.csv", :headers => true, :header_converters => :symbol) do |row|
+    "Parsing provider"
+    providers.push Nppes::RawProvider.new(row.to_hash).to_hash
   end
 
-  count = 0
-  options = { headers: true, header_converters: :symbol }
-  providers_file = '/Volumes/Data/Users/jacobsimeon/Projects/jacobsimeon/providers/npidata_20050523-20120709.csv'
-
-  puts "Reading CSV file #{providers_file}"
-  CSV.foreach(providers_file, options) do |row|
-    puts "Starting import" if count == 0
-    RawProvider.create_or_update transform_row(row.to_hash)
-    count += 1
-    puts "Imported #{count} providers" if count % 1000 == 0
+  File.open('tmp/mini_provider.json', 'w+') do |f|
+    json = JSON.pretty_generate providers
+    f.write json
   end
 
 end

@@ -6,6 +6,7 @@ class CreateNames < ActiveRecord::Migration
       t.string :middle
       t.string :prefix
       t.string :suffix
+      t.string :credentials
 
       t.timestamps
     end
