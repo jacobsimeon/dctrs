@@ -1,18 +1,12 @@
-require 'rspec'
-require 'factory_girl'
-require 'factories/raw_provider_factory'
-require 'nppes/raw_provider'
-
-RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-end
+require 'lib/helper.rb'
 
 module Nppes
   describe RawProvider do
     describe '#to_hash' do
       def transform data
         @raw = data.is_a?(Hash) ? data : attributes_for(data)
-        @provider = RawProvider.new(@raw).to_hash
+        @taxonomies = JSON.parse(File.read('./tmp/specialties.json'))
+        @provider = RawProvider.new(@raw, @taxonomies).to_hash
       end
 
       before { transform :raw_provider }
@@ -236,6 +230,10 @@ module Nppes
           @specialties[0][:code].should == "207X00000X"
         end
 
+        it 'sets the classification' do
+          @specialties[0][:classification].should == 'Orthopaedic Surgery'
+        end
+
         context 'when the primary switch is "Y"' do
           it 'sets :is_primary to true' do
             @specialties[0][:is_primary].should be_true
@@ -298,9 +296,7 @@ module Nppes
             @identifiers[2].should_not have_key(:issuer)
           end
         end
-
       end
-
     end
   end
 end

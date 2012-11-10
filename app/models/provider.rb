@@ -1,6 +1,14 @@
-class Provider < ActiveRecord::Base
+class Provider #< ActiveRecord::Base
+  include Tire::Model::Persistence
+  index_name "#{Tire::Model::Search.index_prefix}providers"
+
+  property :name, class: Name
+  property :specialties, class: [Specialty]
+end
+=begin
   include Tire::Model::Search
   include Tire::Model::Callbacks
+
 
   has_many :specialties
   has_one :mailing_address, class_name: "Address"
@@ -11,7 +19,6 @@ class Provider < ActiveRecord::Base
   has_many :identifiers
   has_many :taxonomy_groups
 
-  index_name "#{Tire::Model::Search.index_prefix}providers"
   after_touch { tire.update_index }
 
   def specialty
@@ -105,5 +112,4 @@ class Provider < ActiveRecord::Base
     index.delete
     create_search_index
   end
-
-end
+=end

@@ -17,13 +17,20 @@ class Hash
     capitalizer = PrefixedHashWrapper.new(prefix, self, :capitalize)
     yield wrapper, capitalizer
   end
+  def symoblize_keys
+    self.keys.inject({}) do |hash, key|
+      hash[key.to_sym] = self[key]
+      hash
+    end
+  end
 end
 
 module Nppes
   class RawProvider
 
-    def initialize data
+    def initialize data, taxonomies={}
       @raw = data
+      @taxonomies = taxonomies
     end
 
     def to_hash
@@ -136,6 +143,8 @@ module Nppes
             code: tax["taxonomy_code_#{number}"],
             is_primary: (tax["primary_taxonomy_switch_#{number}"] == "Y"),
             license: get_license(number) }
+            taxonomy =  (@taxonomies[specialty[:code]] || {}).symbolize_keys
+            specialty.merge taxonomy
         end
       end
     end

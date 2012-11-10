@@ -1,5 +1,5 @@
-class Specialty
-  attr_accessor :code
+class Name
+  attr_accessor :first, :last
 
   def initialize(params={})
     params.each do |attr, value|
@@ -7,3 +7,4 @@ class Specialty
     end if params
   end
 end
+
