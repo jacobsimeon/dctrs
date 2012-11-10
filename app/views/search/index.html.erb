@@ -1,10 +1,9 @@
 <div class="row providers">
   <table class="span12 table-striped table-bordered table-hover">
     <tbody>
-      <% @providers.each do |p| %>
+      <% @providers.each do |provider| %>
         <tr class="provider">
-          <td> <%= p.name %> </td>
-          <td> <%= p.specialty.name %> </td>
+          <td> <%= provider.name.last %> </td>
         </tr>
       <% end %>
     </tbody>

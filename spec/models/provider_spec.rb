@@ -2,15 +2,7 @@ require 'spec_helper.rb'
 
 describe Provider do
   describe 'construction' do
-    it 'accepts npi property' do
-      provider = Provider.new npi: "Some NPI Number"
-      provider.npi.should == "Some NPI Number"
-    end
-
-    it 'accepts entity_type property' do
-      provider = Provider.new entity_type: :organization
-      provider.entity_type.should == :organization
-    end
+    it { should have_initializable_attributes(:npi, :entity_type) }
 
     context 'with nested name attributes' do
       it_behaves_like 'a nested property' do
@@ -33,6 +25,13 @@ describe Provider do
       end
     end
 
+    context 'with nested authorized official attributes' do
+      it_behaves_like 'a nested property' do
+        let(:property_name) { :authorized_official }
+        let(:child_property_class) { AuthorizedOfficial }
+      end
+    end
+
     context 'with nested specialties attributes' do
       it_behaves_like 'a nested collection' do
         let(:child_collection_name) { :specialties }
@@ -46,7 +45,22 @@ describe Provider do
         let(:child_collection_class) { Identifier }
       end
     end
+  end
 
+  describe 'saving and retrieving' do
+    before :each do
+      Provider.index.delete
+      Provider.index.create
+    end
+
+    it 'can search by npi' do
+      provider_attrs = JSON.parse(File.read('spec/support/providers.json'))
+      provider = Provider.new provider_attrs[0]
+      provider.save
+      Provider.index.refresh
+      retrieved_provider = Provider.search provider.npi
+      retrieved_provider[0].id.should == provider.id
+    end
   end
 end
 

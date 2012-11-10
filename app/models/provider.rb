@@ -7,6 +7,7 @@ class Provider
   property :name, class: Name
   property :mailing_address, class: Address
   property :practice_location, class: Address
+  property :authorized_official, class: AuthorizedOfficial
   property :specialties, class: [Specialty]
   property :identifiers, class: [Identifier]
 end
