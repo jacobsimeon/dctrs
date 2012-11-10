@@ -1,10 +1,16 @@
-class Provider #< ActiveRecord::Base
+class Provider
   include Tire::Model::Persistence
   index_name "#{Tire::Model::Search.index_prefix}providers"
 
+  property :npi
+  property :entity_type
   property :name, class: Name
+  property :mailing_address, class: Address
+  property :practice_location, class: Address
   property :specialties, class: [Specialty]
+  property :identifiers, class: [Identifier]
 end
+
 =begin
   include Tire::Model::Search
   include Tire::Model::Callbacks

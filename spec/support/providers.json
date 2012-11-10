@@ -1,0 +1,676 @@
+[
+  {
+    "npi": "1679576722",
+    "entity_type": "individual",
+    "name": {
+      "last": "Wiebe",
+      "first": "David",
+      "middle": "A",
+      "credentials": "M.D.",
+      "prefix": "",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "PO BOX 2168",
+      "city": "Kearney",
+      "state": "NE",
+      "zip": "688482168",
+      "phone": "3088652512",
+      "fax": "3088652506"
+    },
+    "practice_location": {
+      "first_line": "3500 CENTRAL AVE",
+      "city": "Kearney",
+      "state": "NE",
+      "zip": "688472944",
+      "phone": "3088652512",
+      "fax": "3088652506"
+    },
+    "specialties": [
+      {
+        "code": "207X00000X",
+        "is_primary": true,
+        "license": {
+          "number": "12637",
+          "state": "NE"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Orthopaedic Surgery",
+        "specialization": "",
+        "definition": "An orthopaedic surgeon is trained in the preservation, investigation and restoration of the form and function of the extremities, spine and associated structures by medical, surgical and physical means.  An orthopaedic surgeon is involved with the care of patients whose musculoskeletal problems include congenital deformities, trauma, infections, tumors, metabolic disturbances of the musculoskeletal system, deformities, injuries and degenerative diseases of the spine, hands, feet, knee, hip, shoulder and elbow in children and adults. An orthopaedic surgeon is also concerned with primary and secondary muscular problems and the effects of central or peripheral nervous system lesions of the musculoskeletal system.",
+        "notes": "Source: American Board of Medical Specialties, 2007.  www.abms.org [7/1/2007: definiton added, source added; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Orthopaedic Surgery, 2007.  http://www.abos.org/.  American Osteopathic Board of Orthopaedic Surgery, 2007.  http://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Orthopaedic Surgery.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Orthopaedic Surgery."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "645540",
+        "type": "01",
+        "state": "KS",
+        "issuer": "FIRSTGUARD"
+      },
+      {
+        "value": "1553",
+        "type": "01",
+        "state": "NE",
+        "issuer": "BCBS"
+      },
+      {
+        "value": "93420WI",
+        "type": "04",
+        "state": "NE"
+      },
+      {
+        "value": "46969",
+        "type": "01",
+        "state": "KS",
+        "issuer": "BCBS"
+      },
+      {
+        "value": "B67599",
+        "type": "02"
+      },
+      {
+        "value": "046969WI",
+        "type": "04",
+        "state": "KS"
+      }
+    ]
+  },
+  {
+    "npi": "1588667638",
+    "entity_type": "individual",
+    "name": {
+      "last": "Pilcher",
+      "first": "William",
+      "middle": "C",
+      "credentials": "MD",
+      "prefix": "DR.",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "562 PARK ST",
+      "city": "Jacksonville",
+      "state": "FL",
+      "zip": "322042962",
+      "phone": "9046332021",
+      "fax": "9046339793"
+    },
+    "practice_location": {
+      "first_line": "1824 KING ST",
+      "city": "Jacksonville",
+      "state": "FL",
+      "zip": "322044735",
+      "phone": "9043881820",
+      "fax": "9043881827"
+    },
+    "specialties": [
+      {
+        "code": "207RC0000X",
+        "is_primary": false,
+        "license": {
+          "number": "032024",
+          "state": "GA"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Internal Medicine",
+        "specialization": "Cardiovascular Disease",
+        "definition": "An internist who specializes in diseases of the heart and blood vessels and manages complex cardiac conditions such as heart attacks and life-threatening, abnormal heartbeat rhythms.",
+        "notes": "Source: American Osteopathic Board of Internal Medicine, 2008  [7/1/2008: added definition, added source; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Internal Medicine,  http://www.abim.org/.  American Osteopathic Board of Internal Medicine,  https://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Internal Medicine.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Internal Medicine."
+      },
+      {
+        "code": "207RC0000X",
+        "is_primary": true,
+        "license": {
+          "number": "ME68414",
+          "state": "FL"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Internal Medicine",
+        "specialization": "Cardiovascular Disease",
+        "definition": "An internist who specializes in diseases of the heart and blood vessels and manages complex cardiac conditions such as heart attacks and life-threatening, abnormal heartbeat rhythms.",
+        "notes": "Source: American Osteopathic Board of Internal Medicine, 2008  [7/1/2008: added definition, added source; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Internal Medicine,  http://www.abim.org/.  American Osteopathic Board of Internal Medicine,  https://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Internal Medicine.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Internal Medicine."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "208143",
+        "type": "01",
+        "state": "FL",
+        "issuer": "AVMED"
+      },
+      {
+        "value": "06BDGPK",
+        "type": "04",
+        "state": "GA"
+      },
+      {
+        "value": "0897705",
+        "type": "01",
+        "state": "FL",
+        "issuer": "AETNA"
+      },
+      {
+        "value": "110123591",
+        "type": "04",
+        "state": "FL",
+        "issuer": "RAILROAD MCARE"
+      },
+      {
+        "value": "27888Z",
+        "type": "04",
+        "state": "FL"
+      },
+      {
+        "value": "510265",
+        "type": "01",
+        "state": "GA",
+        "issuer": "BCBS"
+      },
+      {
+        "value": "27888",
+        "type": "01",
+        "state": "FL",
+        "issuer": "BCBS"
+      },
+      {
+        "value": "C73899",
+        "type": "02",
+        "state": "FL"
+      },
+      {
+        "value": "00706626A",
+        "type": "05",
+        "state": "GA"
+      },
+      {
+        "value": "251286600",
+        "type": "05",
+        "state": "FL"
+      },
+      {
+        "value": "00532485C",
+        "type": "05",
+        "state": "GA"
+      }
+    ]
+  },
+  {
+    "npi": "1497758544",
+    "entity_type": "organization",
+    "name": {
+      "legal_business_name": "Cumberland county hospital system, inc"
+    },
+    "mailing_address": {
+      "first_line": "3418 VILLAGE DR",
+      "city": "Fayetteville",
+      "state": "NC",
+      "zip": "283044552",
+      "phone": "9106096740",
+      "fax": ""
+    },
+    "practice_location": {
+      "first_line": "3418 VILLAGE DR",
+      "city": "Fayetteville",
+      "state": "NC",
+      "zip": "283044552",
+      "phone": "9106096740",
+      "fax": ""
+    },
+    "authorized_official": {
+      "title": "CEO",
+      "phone": "9106096700",
+      "name": {
+        "last": "NAGOWSKI",
+        "first": "MICHAEL",
+        "middle": "",
+        "prefix": "MR.",
+        "suffix": "",
+        "credentials": ""
+      }
+    },
+    "specialties": [
+      {
+        "code": "251G00000X",
+        "is_primary": true,
+        "license": {
+          "number": "HC0283",
+          "state": "NC"
+        },
+        "type": "Agencies",
+        "classification": "Hospice Care, Community Based",
+        "specialization": "",
+        "definition": "Definition to come...",
+        "notes": ""
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "3401562",
+        "type": "05",
+        "state": "NC"
+      },
+      {
+        "value": "341562",
+        "type": "04",
+        "state": "NC",
+        "issuer": "PROVIDER NUMBER"
+      }
+    ]
+  },
+  {
+    "npi": "1306849450",
+    "entity_type": "individual",
+    "name": {
+      "last": "Smitson",
+      "first": "Harold",
+      "middle": "Leroy",
+      "credentials": "M.D.",
+      "prefix": "DR.",
+      "suffix": "II"
+    },
+    "mailing_address": {
+      "first_line": "810 LUCAS DR",
+      "city": "Athens",
+      "state": "TX",
+      "zip": "757513446",
+      "phone": "9036756778",
+      "fax": "9036752333"
+    },
+    "practice_location": {
+      "first_line": "810 LUCAS DR",
+      "city": "Athens",
+      "state": "TX",
+      "zip": "757513446",
+      "phone": "9036756778",
+      "fax": "9036752333"
+    },
+    "specialties": [
+      {
+        "code": "2085R0202X",
+        "is_primary": true,
+        "license": {
+          "number": "E5444",
+          "state": "TX"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Radiology",
+        "specialization": "Diagnostic Radiology",
+        "definition": "A radiologist who utilizes x-ray, radionuclides, ultrasound and electromagnetic radiation to diagnose and treat disease.",
+        "notes": "Source: American Board of Medical Specialties, 2007.  www.abms.org [7/1/2007: definition added, source added; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Radiology, 2007.  http://www.theabr.org/.   American Osteopathic Board of Radiology, 2007.  http://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Radiology.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Radiology."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "B26530",
+        "type": "02",
+        "state": "TX"
+      },
+      {
+        "value": "83R321",
+        "type": "08",
+        "state": "TX"
+      }
+    ]
+  },
+  {
+    "npi": "1215930367",
+    "entity_type": "individual",
+    "name": {
+      "last": "Gressot",
+      "first": "Laurent",
+      "middle": "",
+      "credentials": "M.D.",
+      "prefix": "DR.",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "PO BOX 4356",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "772104356",
+      "phone": "2814405006",
+      "fax": "2814406149"
+    },
+    "practice_location": {
+      "first_line": "17323 RED OAK DR",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "770901243",
+      "phone": "2814405006",
+      "fax": "2814406149"
+    },
+    "specialties": [
+      {
+        "code": "174400000X",
+        "is_primary": true,
+        "license": {
+          "number": "H6257",
+          "state": "TX"
+        },
+        "type": "Other Service Providers",
+        "classification": "Specialist",
+        "specialization": "",
+        "definition": "An individual educated and trained in an applied knowledge discipline used in the performance of work at a level requiring knowledge and skills beyond or apart from that provided by a general education or liberal arts degree.",
+        "notes": "Source: Expanded from Webster’s II New Riverside University Dictionary, Boston: Riverside Publishing Company, 1974."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "E43866",
+        "type": "02",
+        "state": "TX"
+      },
+      {
+        "value": "830005153",
+        "type": "08",
+        "state": "TX"
+      },
+      {
+        "value": "0533800001",
+        "type": "07",
+        "state": "TX"
+      },
+      {
+        "value": "89G024",
+        "type": "08",
+        "state": "TX"
+      },
+      {
+        "value": "1215930367",
+        "type": "08",
+        "state": "TX"
+      }
+    ]
+  },
+  {
+    "npi": "1023011178",
+    "entity_type": "organization",
+    "name": {
+      "legal_business_name": "Napa valley hospice & adult day services"
+    },
+    "mailing_address": {
+      "first_line": "414 S JEFFERSON ST",
+      "city": "Napa",
+      "state": "CA",
+      "zip": "945594515",
+      "phone": "7072589080",
+      "fax": "7072582476"
+    },
+    "practice_location": {
+      "first_line": "414 S JEFFERSON ST",
+      "city": "Napa",
+      "state": "CA",
+      "zip": "945594515",
+      "phone": "7072589080",
+      "fax": "7072582476"
+    },
+    "authorized_official": {
+      "title": "DIRECTOR OF FINANCE",
+      "phone": "7072589080",
+      "name": {
+        "last": "VOLKERTS",
+        "first": "KEITH",
+        "middle": "REGIS",
+        "prefix": "MR.",
+        "suffix": "",
+        "credentials": ""
+      }
+    },
+    "specialties": [
+      {
+        "code": "251G00000X",
+        "is_primary": true,
+        "license": {
+          "number": "100000741",
+          "state": "CA"
+        },
+        "type": "Agencies",
+        "classification": "Hospice Care, Community Based",
+        "specialization": "",
+        "definition": "Definition to come...",
+        "notes": ""
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "051537",
+        "type": "04",
+        "state": "CA",
+        "issuer": "HOSPICE MEDICARE NO"
+      },
+      {
+        "value": "HPC01537G",
+        "type": "05",
+        "state": "CA"
+      }
+    ]
+  },
+  {
+    "npi": "1932102084",
+    "entity_type": "individual",
+    "name": {
+      "last": "Adusumilli",
+      "first": "Ravi",
+      "middle": "K",
+      "credentials": "MD",
+      "prefix": "",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "2940 N MCCORD RD",
+      "city": "Toledo",
+      "state": "OH",
+      "zip": "436151753",
+      "phone": "4198423000",
+      "fax": "4198423048"
+    },
+    "practice_location": {
+      "first_line": "2940 N MCCORD RD",
+      "city": "Toledo",
+      "state": "OH",
+      "zip": "436151753",
+      "phone": "4198423000",
+      "fax": "4198423048"
+    },
+    "specialties": [
+      {
+        "code": "207RC0000X",
+        "is_primary": false,
+        "license": {
+          "number": "4301081344",
+          "state": "MI"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Internal Medicine",
+        "specialization": "Cardiovascular Disease",
+        "definition": "An internist who specializes in diseases of the heart and blood vessels and manages complex cardiac conditions such as heart attacks and life-threatening, abnormal heartbeat rhythms.",
+        "notes": "Source: American Osteopathic Board of Internal Medicine, 2008  [7/1/2008: added definition, added source; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Internal Medicine,  http://www.abim.org/.  American Osteopathic Board of Internal Medicine,  https://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Internal Medicine.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Internal Medicine."
+      },
+      {
+        "code": "207RC0000X",
+        "is_primary": true,
+        "license": {
+          "number": "35069014",
+          "state": "OH"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Internal Medicine",
+        "specialization": "Cardiovascular Disease",
+        "definition": "An internist who specializes in diseases of the heart and blood vessels and manages complex cardiac conditions such as heart attacks and life-threatening, abnormal heartbeat rhythms.",
+        "notes": "Source: American Osteopathic Board of Internal Medicine, 2008  [7/1/2008: added definition, added source; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Internal Medicine,  http://www.abim.org/.  American Osteopathic Board of Internal Medicine,  https://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Internal Medicine.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Internal Medicine."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "4042622",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "4042624",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "060060579",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "P00751116",
+        "type": "01",
+        "issuer": "RAILROAD MEDICARE"
+      },
+      {
+        "value": "0178623",
+        "type": "05",
+        "state": "OH"
+      },
+      {
+        "value": "AD4257781",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "MI1635026",
+        "type": "08",
+        "state": "MI"
+      },
+      {
+        "value": "0792003",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "0792002",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "MI1635021",
+        "type": "08",
+        "state": "MI"
+      },
+      {
+        "value": "4042627",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "E21287",
+        "type": "02"
+      },
+      {
+        "value": "4042628",
+        "type": "08",
+        "state": "OH"
+      },
+      {
+        "value": "4042629",
+        "type": "08",
+        "state": "OH"
+      }
+    ]
+  },
+  {
+    "npi": "1841293990",
+    "entity_type": "individual",
+    "name": {
+      "last": "Wortsman",
+      "first": "Susan",
+      "middle": "",
+      "credentials": "MA-CCC",
+      "prefix": "",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "68 ROCKLEDGE RD",
+      "city": "Hartsdale",
+      "state": "NY",
+      "zip": "105303455",
+      "phone": "2124814464",
+      "fax": ""
+    },
+    "practice_location": {
+      "first_line": "425 E 25TH ST",
+      "city": "New york",
+      "state": "NY",
+      "zip": "100102547",
+      "phone": "2124814464",
+      "fax": ""
+    },
+    "specialties": [
+      {
+        "code": "231H00000X",
+        "is_primary": true,
+        "license": {
+          "number": "000396-1",
+          "state": "NY"
+        },
+        "type": "Speech, Language and Hearing Service Providers",
+        "classification": "Audiologist",
+        "specialization": "",
+        "definition": "(1) A specialist in evaluation, habilitation and rehabilitation of those whose communication disorders center in whole or in part in hearing function. Audiologists are autonomous professionals who identify, assess, and manage disorders of the auditory, balance and other neural systems. Audiologists provide audiological (aural) rehabilitation to children and adults across the entire age span. Audiologists select, fit and dispense amplification systems such as hearing aids and related devices. (2) An audiologist is a person qualified by a master’s degree in audiology, licensed by the state, where applicable, and practicing within the scope of that license. Audiologists evaluate and treat patients with impaired hearing. They plan, direct and conduct rehabilitative programs with audiotry substitutional devises (hearing aids) and other therapy.",
+        "notes": "Source: (1) American Speech-Language-Hearing Association, (1996, Spring) Scope of practice in Audiology, p. 2"
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "M72081",
+        "type": "04",
+        "state": "NY",
+        "issuer": "PROVIDER NUMBER"
+      }
+    ]
+  },
+  {
+    "npi": "1750384806",
+    "entity_type": "individual",
+    "name": {
+      "last": "Bisbee",
+      "first": "Robert",
+      "middle": "",
+      "credentials": "MD",
+      "prefix": "DR.",
+      "suffix": ""
+    },
+    "mailing_address": {
+      "first_line": "5219 CITY BANK PKWY",
+      "city": "Lubbock",
+      "state": "TX",
+      "zip": "794073545",
+      "phone": "8067852045",
+      "fax": "8067222908"
+    },
+    "practice_location": {
+      "first_line": "113 WALNUT ST",
+      "city": "Idalou",
+      "state": "TX",
+      "zip": "793294003",
+      "phone": "8068922537",
+      "fax": "8068922726"
+    },
+    "specialties": [
+      {
+        "code": "207R00000X",
+        "is_primary": true,
+        "license": {
+          "number": "J8461",
+          "state": "TX"
+        },
+        "type": "Allopathic & Osteopathic Physicians",
+        "classification": "Internal Medicine",
+        "specialization": "",
+        "definition": "A physician who provides long-term, comprehensive care in the office and the hospital, managing both common and complex illness of adolescents, adults and the elderly. Internists are trained in the diagnosis and treatment of cancer, infections and diseases affecting the heart, blood, kidneys, joints and digestive, respiratory and vascular systems. They are also trained in the essentials of primary care internal medicine, which incorporates an understanding of disease prevention, wellness, substance abuse, mental health and effective treatment of common problems of the eyes, ears, skin, nervous system and reproductive organs.",
+        "notes": "Source: American Board of Medical Specialties, 2007.  www.abms.org [7/1/2007: added definition, added source; 7/1/2011: modified source]<br/><br/>Additional Resources: American Board of Internal Medicine, 2007.  http://www.abim.org/.  American Osteopathic Board of Internal Medicine, 2007.  http://www.osteopathic.org/certification<br/><br/>Board certification for Medical Doctors (MDs) is provided by the American Board of Internal  Medicine.  Board certification for Doctors of Osteopathy (DOs) is provided by the American Osteopathic Board of Internal  Medicine."
+      }
+    ],
+    "identifiers": [
+      {
+        "value": "G22052",
+        "type": "02",
+        "state": "TX"
+      }
+    ]
+  }
+]
