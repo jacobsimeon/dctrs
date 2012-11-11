@@ -192,6 +192,7 @@ DEPENDENCIES
   draper
   factory_girl_rails
   jquery-rails
+  less-rails
   pg
   rails (= 3.2.8)
   rspec-rails
