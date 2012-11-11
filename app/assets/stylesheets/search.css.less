@@ -1,9 +1,14 @@
-@import 'twitter/bootstrap/bootstrap';
+@import 'twitter/bootstrap/variables';
 
-.providers table td, .providers table th{
-  padding: 5px;
-  padding-left: 20px;
+.provider{
+  padding: 10px 10px 0px 10px;
 }
-.providers table tr{
-  color: darken(@linkColor, 12%)
+
+.provider .header{
+  margin-bottom: 4px;
+  border-bottom: 1px solid lighten(@linkColor, 40%);
+}
+
+.provider .header .name {
+  color: @linkColor;
 }

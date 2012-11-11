@@ -1,11 +1,28 @@
-<div class="row providers">
-  <table class="span12 table-striped table-bordered table-hover">
-    <tbody>
-      <% @providers.each do |provider| %>
-        <tr class="provider">
-          <td> <%= provider.name.last %> </td>
-        </tr>
+<div class="providers">
+  <% @providers.each do |provider| %>
+    <%= provider.container do %>
+
+      <%= provider.header do %>
+        <%= provider.name %>
+        <%= provider.npi %>
       <% end %>
-    </tbody>
-  </table>
-<div class="row">
+
+      <%= provider.body do %>
+        <%= provider.specialty do |specialty| %>
+          <%= specialty.specialization %>
+          <%= specialty.classification.html_safe %>
+          <%= specialty.type %>
+        <% end %>
+
+        <%= provider.address do |address| %>
+          <%= address.street %>
+          <%= address.city_state_zip %>
+          <%= address.phone %>
+          <%= address.fax %>
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+  <% end %>
+</div>

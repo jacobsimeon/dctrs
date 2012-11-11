@@ -39,25 +39,25 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Dctrs</a>
+          <a class="brand" href="/">Dctrs</a>
+          <% unless @suppress_navbar_search %>
+            <form class="form-search navbar-form pull-right" action="/search">
+              <div class="input-append">
+                <input type="text" class="span2 search-query" name="query" value="<%= params[:query] %>">
+                <button id="navbar-search-button" type="submit" class="btn">Search</button>
+              </div>
+            </form>
+          <% end %>
         </div>
       </div>
     </div>
 
     <div class="container">
       <div class="content">
-        <div class="row">
-           <div class="span12">
-              <%= yield %>
-            </div>
-        </div><!--/row-->
-      </div><!--/content-->
+        <%= yield %>
+      </div>
+    </div>
 
-    </div> <!-- /container -->
-
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
 
   </body>

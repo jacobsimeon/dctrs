@@ -10,6 +10,10 @@ class Provider
   property :authorized_official, class: AuthorizedOfficial
   property :specialties, class: [Specialty]
   property :identifiers, class: [Identifier]
+
+  def primary_specialty
+    specialties.first { |s| s.is_primary }
+  end
 end
 
 =begin

@@ -62,5 +62,16 @@ describe Provider do
       retrieved_provider[0].id.should == provider.id
     end
   end
+
+  describe 'primary_specialty' do
+    it 'finds the first specialty with :is_primary set to true' do
+      the_primary_specialty = Specialty.new
+      not_primary = Specialty.new
+      provider = Provider.new
+      provider.specialties = [not_primary, the_primary_specialty]
+      provider.primary_specialty.should be(the_primary_specialty)
+    end
+
+  end
 end
 

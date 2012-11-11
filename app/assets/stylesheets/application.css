@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+.btn#navbar-search-button{
+  margin-top: 0;
+}

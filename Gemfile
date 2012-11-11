@@ -27,3 +27,4 @@ end
 
 gem 'jquery-rails'
 gem 'tire'
+gem 'draper'
