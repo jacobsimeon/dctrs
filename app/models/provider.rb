@@ -11,6 +11,8 @@ class Provider
   property :specialties, class: [Specialty]
   property :identifiers, class: [Identifier]
 
+  def id; npi; end
+
   def primary_specialty
     specialties.first { |s| s.is_primary }
   end

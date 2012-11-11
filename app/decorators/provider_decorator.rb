@@ -27,20 +27,21 @@ class ProviderDecorator < Draper::Base
     end
   end
 
+  def get_name
+    if provider.entity_type == "individual"
+      provider.name.first + " " + provider.name.last
+    else
+      provider.name.legal_business_name
+    end
+  end
+
   def name
     h.content_tag(:strong, { class: 'name' }) do
-      if provider.entity_type == "individual"
-        provider.name.first + " " + provider.name.last
-      else
-        provider.name.legal_business_name
-      end
+      h.link_to get_name, h.provider_path(provider.npi)
     end
   end
 
   def npi
-    h.content_tag(:a, { href:'#', class: 'npi pull-right' }) do
-      "#{provider.npi}"
-    end
+    h.link_to provider.npi, h.provider_path(provider.npi), class: "npi pull-right"
   end
-
 end
