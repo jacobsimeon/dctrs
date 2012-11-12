@@ -1,6 +1,8 @@
 task import: :environment do
+
   Provider.index.delete
   Provider.index.create
+
   require 'csv'
   require 'json'
   require './lib/nppes/raw_provider.rb'
@@ -8,11 +10,18 @@ task import: :environment do
   puts "Starting..."
   taxonomies = JSON.parse(File.read('./lib/data/specialties.json'))
 
-  CSV.foreach("./lib/data/mini_providers.csv", :headers => true, :header_converters => :symbol) do |row|
-    puts "Parsing provider"
-    provider = Provider.new(Nppes::RawProvider.new(row.to_hash, taxonomies).to_hash).save
-    puts "Saved a new provider with npi #{provider.npi}"
+  CSV.foreach("/Users/jacobsimeon/downloads/nppes/providers.csv", :headers => true, :header_converters => :symbol) do |row|
+    begin
+      puts "Parsing provider"
+      puts row[:npi]
+      provider = Provider.new(Nppes::RawProvider.new(row.to_hash, taxonomies).to_hash).save
+      puts "Saved a new provider with npi #{provider.npi}"
+    rescue Exception => e 
+      puts e
+    end
   end
+
+  Provider.index.refresh
 
 end
 

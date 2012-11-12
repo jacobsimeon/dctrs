@@ -1,4 +1,9 @@
 <div class="providers">
+  <div class="row">
+    <div class="span11 offset1">
+      <%= will_paginate @providers %>
+    </div>
+  </div>
   <% @providers.each do |provider| %>
     <%= provider.container do %>
 
