@@ -15,3 +15,4 @@ role :app, "54.234.0.235"                          # This may be the same as you
 
 ssh_options[:forward_agent] = true
 require 'capistrano-unicorn'
+require "bundler/capistrano"
