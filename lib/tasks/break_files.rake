@@ -1,34 +1,41 @@
-task :break_files do
-  root = "/Volumes/Data/Users/jacobsimeon/Projects/jacobsimeon/providers"
-  provider_file_name = 'npidata_20050523-20120709.csv'
-  provider_file = File.join root, provider_file_name 
-  new_files_dir = File.join root, 'providers' 
+task :split_file, :file do |t, args|
 
-  puts "Will break apart #{provider_file}"
-  puts "Will place smaller files in #{new_files_dir}"
+  FILE_NAME = args[:file]
+  OUT_DIR = File.expand_path('../../../tmp/providers/', __FILE__)
+  NUM_FILES = 10
+  puts OUT_DIR
 
-  puts "Counting total lines in provider file"
-  total_lines = 3717914 #(`wc -l #{provider_file}`).to_i
+  headers = `head -1 #{FILE_NAME}`
+  num_lines = `sed -n '$=' #{FILE_NAME}`.to_i
 
-  puts "Total Lines: #{total_lines}"
+  puts "Total lines in parent file: #{num_lines}"
 
-  max_file_lines = 10000
+  file_size = ((num_lines + NUM_FILES - (num_lines % NUM_FILES)) / NUM_FILES) - 1
 
-  big_file = File.open(provider_file)
-  headers = big_file.readline
+  puts "Splitting into files with #{file_size} lines"
 
-  file_no = 0
-  while !big_file.eof?
-    filename = File.join new_files_dir, provider_file_name.sub('.csv', "_#{"%05d" % file_no}.csv")
-    small_file = File.open(filename, 'w+')
-    small_file.puts headers
-    lines_read = 0
-    while lines_read < max_file_lines and !big_file.eof?
-      small_file.puts big_file.readline    
-      lines_read += 1
+  `rm -rf #{OUT_DIR}` if File.exists?(OUT_DIR) && File.directory?(OUT_DIR)
+  `mkdir -p #{OUT_DIR}`
+  `split -a 2 -l #{file_size} #{FILE_NAME} #{OUT_DIR}/providers_`
+
+  file_count = 0
+  threads = []
+  Dir.foreach(OUT_DIR) do |file_name|
+    next if file_name == '.' or file_name == '..'
+    full_name = "#{OUT_DIR}/#{file_name}"
+
+    threads << Thread.start do 
+      if `head -1 #{full_name}` == headers
+        puts "Not prepending csv headers to #{full_name}"
+      else
+        puts "Prepending csv headers to #{full_name}"
+        `perl -pi -e 'print "#{headers.gsub('"',"\\\"")}" if $. == 1' #{full_name}`
+      end
+      puts "zipping #{full_name}"
+      `gzip #{full_name}`
     end
-    puts "Wrote #{lines_read} lines to file ##{file_no}"
-    file_no += 1
   end
 
+  threads.each { |t| t.join }
 end
+
