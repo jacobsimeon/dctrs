@@ -32,10 +32,10 @@ listen 8080, :tcp_nopush => true
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "/u/apps/dctors/current/pids/unicorn.pid"
+pid "./pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
-# Additionally, ome applications/frameworks log to stderr or stdout,
+# Additionally, some applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
 stderr_path "/u/apps/dctors/current/log/unicorn.stderr.log"
 stdout_path "/u/apps/dctors/current/log/unicorn.stdout.log"
