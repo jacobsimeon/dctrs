@@ -1,19 +1,18 @@
+
+ssh_options[:forward_agent] = true
+
 set :application, "dctors"
 set :repository,  "git@github.com:jacobsimeon/dctrs.git"
 set :user, 'ubuntu'
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm, :git
-
-require "rvm/capistrano"
 set :rvm_type, :system
 
-#role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :web, "23.22.213.206"
-role :app, "23.22.213.206"                          # This may be the same as your `Web` server
-#role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
+role :web, "50.17.91.42"
+role :app, "23.22.213.206"
 
-ssh_options[:forward_agent] = true
+require "rvm/capistrano"
 require 'capistrano-unicorn'
 require "bundler/capistrano"
+
