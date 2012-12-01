@@ -9,8 +9,9 @@ set :deploy_via, :remote_cache
 set :scm, :git
 set :rvm_type, :system
 
-role :web, "50.17.91.42"
-role :app, "23.22.213.206"
+role :web, "dctrs.io"
+role :app, "app1.dctrs.io"
+role :app, "app2.dctrs.io"
 
 require "rvm/capistrano"
 require 'capistrano-unicorn'
