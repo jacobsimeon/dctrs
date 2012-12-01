@@ -1,7 +1,7 @@
 
 ssh_options[:forward_agent] = true
 
-set :application, "dctors"
+set :application, "dctrs"
 set :repository,  "git@github.com:jacobsimeon/dctrs.git"
 set :user, 'ubuntu'
 set :branch, "master"
