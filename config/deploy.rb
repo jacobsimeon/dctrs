@@ -9,13 +9,12 @@ set :deploy_via, :remote_cache
 set :scm, :git
 set :rvm_type, :system
 
-server "dctrs.io", :web
-#server "app1.dctrs.io", :web, :app
-server "app2.dctrs.io", :web, :app
+role :web, "app1.dctrs.io", "app2.dctrs.io", "dctrs.io"
+role :app, "app1.dctrs.io", "app2.dctrs.io"
 
 require "rvm/capistrano"
 require 'capistrano-unicorn'
 require "bundler/capistrano"
 
-after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
-after 'deploy:restart', 'unicorn:restart'  # app preloaded
+#after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
+#after 'deploy:restart', 'unicorn:restart'  # app preloaded

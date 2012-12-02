@@ -5,7 +5,7 @@ class RawProvidersController < ApplicationController
   http_basic_authenticate_with :name => "jacob", :password => "simeon"
 
   def create
-    provider = Provider.create(get_raw_provider_from_string)
+    provider = Provider.new get_raw_provider_from_string
     render :text => "created provider #{provider.npi}", status: :created
   end
 

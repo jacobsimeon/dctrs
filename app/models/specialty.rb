@@ -1,6 +1,6 @@
 class Specialty
-  attr_accessor :code, :is_primary, :type, :classification, :specialization, :definition, :notes
   include Initializable
+  attr_accessor :code, :is_primary, :type, :classification, :specialization, :definition, :notes
 
   def license=(license)
     if license.respond_to? :[]

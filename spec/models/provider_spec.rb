@@ -65,7 +65,7 @@ describe Provider do
 
   describe 'primary_specialty' do
     it 'finds the first specialty with :is_primary set to true' do
-      the_primary_specialty = Specialty.new
+      the_primary_specialty = Specialty.new is_primary: true
       not_primary = Specialty.new
       provider = Provider.new
       provider.specialties = [not_primary, the_primary_specialty]
