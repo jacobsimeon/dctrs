@@ -10,7 +10,7 @@ set :scm, :git
 set :rvm_type, :system
 
 server "dctrs.io", :web
-server "app1.dctrs.io", :web, :app
+#server "app1.dctrs.io", :web, :app
 server "app2.dctrs.io", :web, :app
 
 require "rvm/capistrano"

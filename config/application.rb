@@ -68,3 +68,4 @@ module Dctrs
 end
 
 require 'initializable'
+require 'nppes/raw_provider.rb'
