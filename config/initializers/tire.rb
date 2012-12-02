@@ -1,7 +1,6 @@
 
-
-if Rails.env.production?
-  ENV['ELASTICSEARCH_URL'] = 'http://jacob:7dwarves@searc1.dctrs.io:8080'
+if Rails.env[/production/]
+  ENV['ELASTICSEARCH_URL'] = 'http://jacob:7dwarves@search1.dctrs.io:8080'
 else
   ENV['ELASTICSEARCH_URL'] = 'http://localhost:9200'
 end
