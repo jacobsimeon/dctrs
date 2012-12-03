@@ -1,9 +1,9 @@
+=begin
 task :split_file, :file do |t, args|
 
-  FILE_NAME = args[:file]
-  OUT_DIR = File.expand_path('../../../tmp/providers/', __FILE__)
+  FILE_NAME = 'providers.csv'
+  OUT_DIR = 'providers'
   NUM_FILES = 10
-  puts OUT_DIR
 
   headers = `head -1 #{FILE_NAME}`
   num_lines = `sed -n '$=' #{FILE_NAME}`.to_i
@@ -23,19 +23,10 @@ task :split_file, :file do |t, args|
   Dir.foreach(OUT_DIR) do |file_name|
     next if file_name == '.' or file_name == '..'
     full_name = "#{OUT_DIR}/#{file_name}"
-
-    threads << Thread.start do 
-      if `head -1 #{full_name}` == headers
-        puts "Not prepending csv headers to #{full_name}"
-      else
-        puts "Prepending csv headers to #{full_name}"
-        `perl -pi -e 'print "#{headers.gsub('"',"\\\"")}" if $. == 1' #{full_name}`
-      end
-      puts "zipping #{full_name}"
-      `gzip #{full_name}`
+    `gzip #{full_name}`
     end
   end
 
   threads.each { |t| t.join }
 end
-
+=end

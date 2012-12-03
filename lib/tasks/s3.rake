@@ -4,7 +4,7 @@ task :s3, :dir do |t, args|
   
   OUT_DIR = args[:dir]
 
-  bucket_name = "dctrs_io_imports"
+  bucket_name = "dctrs-io-imports/input2"
 
   AWS.config({
     access_key_id: ENV['AWS_ACCESS_KEY_ID'],
@@ -21,7 +21,7 @@ task :s3, :dir do |t, args|
 
     threads << Thread.start do 
       import_file = dctrs_io_imports.objects[File.basename(full_name)]
-      object.write file: full_name
+      import_file.write file: full_name
     end
   end
 

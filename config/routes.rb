@@ -1,8 +1,9 @@
 Dctrs::Application.routes.draw do
   get "search" => "search#index"
 
-  resources :raw_providers, :only => :create
   resources :providers, :only => :show
+  resources :headers, :only => :index
+  resources :taxonomies, :only => :index
 
   root :to => 'home#index'
 end

@@ -5,7 +5,7 @@ module Nppes
     describe '#to_hash' do
       def transform data
         @raw = data.is_a?(Hash) ? data : attributes_for(data)
-        @taxonomies = JSON.parse(File.read('./tmp/specialties.json'))
+        @taxonomies = JSON.parse(File.read('./lib/data/specialties.json'))
         @provider = RawProvider.new(@raw, @taxonomies).to_hash
       end
 

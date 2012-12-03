@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'fastercsv'
+require 'json'
+require 'net/http'
 
 class PrefixedHashWrapper
   def initialize(prefix, unprefixed, capitalize=false)
@@ -15,7 +19,7 @@ class Hash
   def with_prefix(prefix, suffix=nil)
     wrapper = PrefixedHashWrapper.new(prefix, self)
     capitalizer = PrefixedHashWrapper.new(prefix, self, :capitalize)
-    yield wrapper, capitalizer
+    yield(wrapper, capitalizer)
   end
   def symbolize_keys
     self.keys.inject({}) do |hash, key|
@@ -112,17 +116,17 @@ module Nppes
       ao_last_name = @raw[:authorized_official_last_name]
       return nil if ao_last_name.nil? || ao_last_name.empty?
 
-      @raw.with_prefix(:authorized_official_) do |ao|
+      @raw.with_prefix(:authorized_official_) do |ao, _|
         {
-          :title =>  ao[:title_or_position],
-          :phone =>  ao[:telephone_number],
-          :name =>  {
-            :last =>  ao[:last_name],
-            :first =>  ao[:first_name],
-            :middle =>  ao[:middle_name],
-            :prefix =>  ao[:name_prefix_text],
-            :suffix =>  ao[:name_suffix_text],
-            :credentials =>  ao[:credential_text]
+          :title => ao[:title_or_position],
+          :phone => ao[:telephone_number],
+          :name => {
+            :last => ao[:last_name],
+            :first => ao[:first_name],
+            :middle => ao[:middle_name],
+            :prefix => ao[:name_prefix_text],
+            :suffix => ao[:name_suffix_text],
+            :credentials => ao[:credential_text]
           }
         }
       end
@@ -138,9 +142,9 @@ module Nppes
 
     def get_specialty number
       if taxonomy_is_present number
-        specialty = @raw.with_prefix(:healthcare_provider_) do |tax|
+        specialty = @raw.with_prefix(:healthcare_provider_) do |tax, _|
           specialty = {
-            code: tax["taxonomy_code_#{number}"],
+            :code => tax["taxonomy_code_#{number}"],
             :is_primary => (tax["primary_taxonomy_switch_#{number}"] == "Y"),
             :license => get_license(number) }
             taxonomy = (@taxonomies[specialty[:code]] || {}).symbolize_keys
@@ -155,7 +159,7 @@ module Nppes
     end
 
     def get_license number
-      @raw.with_prefix(:provider_license_number_) do |license|
+      @raw.with_prefix(:provider_license_number_) do |license, _|
         { :number =>  license[number.to_s],
           :state =>  license["state_code_#{number}"] }
       end
@@ -171,7 +175,7 @@ module Nppes
 
     def get_identifier the_next
       if identifier_is_present the_next
-        @raw.with_prefix(:other_provider_identifier_) do |other_id|
+        @raw.with_prefix(:other_provider_identifier_) do |other_id, _|
           id = {
             :value =>  other_id[the_next],
             :type =>  other_id["type_code_#{the_next}"],
@@ -194,4 +198,42 @@ module Nppes
     end
 
   end
+
+  class Importer
+    def initialize
+      @headers = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/headers')))
+      @taxonomies = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/taxonomies')))
+    end
+
+    def import row_string
+      begin
+        operation_meta_data = { :index => { :_index => :providers, :_type => :provider }}
+        options = { :headers => @headers, :header_converters => :symbol }
+
+        row = FasterCSV.parse_line(row_string, options)
+
+        provider = get_provider_json(row)
+        operation_meta_data[:index][:_id] = provider[:id]
+
+        puts operation_meta_data.to_json
+        puts provider.to_json
+      rescue StandardError => e
+        puts "Unable to parse line: #{row_string}"
+      end
+    end
+
+    private
+    def get_provider_json row
+      provider = build_raw_provider_from_row(row)
+    end
+
+    def build_raw_provider_from_row row
+      raw_provider = Nppes::RawProvider.new(row.to_hash, @taxonomies).to_hash
+      raw_provider[:id] = raw_provider[:npi]
+      raw_provider
+    end
+  end
 end
+
+@importer = Nppes::Importer.new
+ARGF.each { |line| @importer.import line }
