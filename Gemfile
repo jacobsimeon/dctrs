@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
-
+gem 'rails'
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -38,3 +37,4 @@ gem 'capistrano'
 gem 'unicorn'
 gem 'capistrano-unicorn'
 gem 'rvm-capistrano'
+

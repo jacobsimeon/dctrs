@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require 'rubygems'
 require 'fastercsv'
 require 'json'
@@ -201,24 +203,19 @@ module Nppes
 
   class Importer
     def initialize
-      @headers = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/headers')))
-      @taxonomies = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/taxonomies')))
+      @headers = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/headers.json')))
+      @taxonomies = JSON.parse(Net::HTTP.get(URI('http://dctrs.io/taxonomies.json')))
     end
 
     def import row_string
       begin
         operation_meta_data = { :index => { :_index => :providers, :_type => :provider }}
         options = { :headers => @headers, :header_converters => :symbol }
-
         row = FasterCSV.parse_line(row_string, options)
 
         provider = get_provider_json(row)
-        operation_meta_data[:index][:_id] = provider[:id]
-
-        puts operation_meta_data.to_json
         puts provider.to_json
       rescue StandardError => e
-        puts "Unable to parse line: #{row_string}"
       end
     end
 

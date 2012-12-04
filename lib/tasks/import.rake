@@ -1,5 +1,4 @@
 
-=begin
 ENV['ELASTICSEARCH_URL'] = 'http://xq0vkvx0:ido6siqdctum40h5@holly-4358549.us-east-1.bonsai.io'
 
 require 'monitor'
@@ -103,7 +102,6 @@ end
 #start a process for each 10 files in the import file directory
 #each process starts a thread to process each file
 task :new_import => :environment do
-  puts "running imports"
   ProviderImporter.new.run_imports
 end
 
