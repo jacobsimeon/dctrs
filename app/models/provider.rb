@@ -14,7 +14,7 @@ class Provider
   def id; npi; end
 
   def primary_specialty
-    specialties.select { |s| s.is_primary }.first
+    specialties.select { |s| s.is_primary }.first || NullSpecialty.new
   end
 end
 
