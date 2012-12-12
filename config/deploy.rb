@@ -10,6 +10,7 @@ set :scm, :git
 set :rvm_type, :system
 
 role :web, "www1.dctrs.io"
+role :app, "www1.dctrs.io"
 
 require "rvm/capistrano"
 require 'capistrano-unicorn'
