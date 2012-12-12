@@ -21,4 +21,5 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 *.swp
-*.DStore
+
+.DS_Store
